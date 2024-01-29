@@ -21,14 +21,20 @@
       <div id="countdown">10</div>
     </div>
     <script>
-      var counter = 10;
-      var interval = setInterval(function() {
-        document.getElementById('countdown').innerHTML = counter--;
-        if (counter < 0) {
-          clearInterval(interval);
-          return;
-        }
-      }, 1000);
+     // Current date
+     var present_date = new Date();
+     console.log(present_date);
+     // Future date
+     var future_date = new Date("2024-06-14"); // Change this to your desired future date
+     
+     // Calculate the difference in time
+     var difference_in_time = future_date.getTime() - present_date.getTime();
+     
+     // Convert the difference from milliseconds to days
+     var difference_in_days = Math.round(difference_in_time / (1000 * 60 * 60 * 24));
+     
+     // Display the countdown
+     document.getElementById('countdown').innerHTML = difference_in_days;
    </script>
  </body>
 </html>
