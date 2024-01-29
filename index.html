@@ -18,23 +18,30 @@
  </head>
  <body>
     <div class="timer-container">
-      <div id="countdown">141</div>
+      <div id="countdown">
+        <ul>
+          <li><span id="days"></span>Days</li>
+          <li><span id="hours"></span>Hours</li>
+          <li><span id="minutes"></span>Minutes</li>
+          <li><span id="seconds"></span>Seconds</li>
+        </ul>
+     </div>
     </div>
     <script>
-     // Current date
      var present_date = new Date();
-     console.log(present_date);
-     // Future date
-     var future_date = new Date("2024-06-14"); // Change this to your desired future date
-     
-     // Calculate the difference in time
-     var difference_in_time = future_date.getTime() - present_date.getTime();
-     
-     // Convert the difference from milliseconds to days
-     var difference_in_days = Math.round(difference_in_time / (1000 * 60 * 60 * 24));
-     
-     // Display the countdown
-     document.getElementById('countdown').innerHTML = difference_in_days;
+    var future_date = new Date("2024-06-14"); // Change this to your desired future date
+
+    var difference_in_time = future_date.getTime() - present_date.getTime();
+
+    var days = Math.floor(difference_in_time / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((difference_in_time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((difference_in_time % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((difference_in_time % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
    </script>
  </body>
 </html>
